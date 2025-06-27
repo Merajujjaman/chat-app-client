@@ -26,12 +26,15 @@ export default function MessageBubble({ msg, myId, selectedUser, users}) {
         className={`chat-bubble-row ${isSelf ? "self" : "other"}`}
         style={{ display: "flex", alignItems: "flex-end", marginBottom: 2, flexDirection: isSelf ? "row-reverse" : "row" }}
       >
-        <img
-          src={avatarUrl}
-          alt={isSelf ? localStorage.getItem("username") : msg.username || "User"}
-          className="chat-bubble-avatar"
-          style={{ width: 32, height: 32, borderRadius: "50%", margin: isSelf ? "0 0 0 8px" : "0 8px 0 0" }}
-        />
+        <div className="avatar-container" style={{ position: 'relative', display: 'inline-block' }}>
+          <img
+            src={avatarUrl}
+            alt={isSelf ? localStorage.getItem("username") : msg.username || "User"}
+            className="chat-bubble-avatar"
+            style={{ width: 32, height: 32, borderRadius: "50%", margin: isSelf ? "0 0 0 8px" : "0 8px 0 0" }}
+          />
+          
+        </div>
         <div
           className={`chat-bubble ${isSelf ? "self" : "other"}`}
           title={new Date(msg.createdAt).toLocaleString()}

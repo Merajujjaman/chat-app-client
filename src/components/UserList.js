@@ -243,18 +243,16 @@ function UserList({
               }`}
               onClick={() => onSelect(user)}
             >
-              <img
-                className="user-list-avatar"
-                src={getProfileImageUrl(user)}
-                alt={displayName}
-              />
+              <div className="avatar-container" style={{ position: 'relative', display: 'inline-block' }}>
+                <img
+                  className="user-list-avatar"
+                  src={getProfileImageUrl(user)}
+                  alt={displayName}
+                />
+                <span className={`status-dot${isOnline ? '' : ' offline'}`}></span>
+              </div>
               <span className="user-list-username">
                 {displayName}
-                {isOnline ? (
-                  <span style={{ color: "green", marginLeft: "8px" }}>🟢</span>
-                ) : (
-                  <span style={{ color: "gray", marginLeft: "8px" }}>⚪</span>
-                )}
                 {unread > 0 && (
                   <span
                     style={{

@@ -194,3 +194,24 @@ body.dark-mode .user-list-user:hover {
 body.dark-mode .user-list-username {
   color: #e6f7ee;
 }
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.status-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #44b700; /* online green */
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.status-dot.offline {
+  background: #bdbdbd; /* gray for offline */
+}
