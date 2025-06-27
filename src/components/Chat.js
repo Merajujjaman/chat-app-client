@@ -170,12 +170,15 @@ function Chat({ selectedUser, onBack, isMobile }) {
           &#8592;
         </button>
         <img
-          src={`https://ui-avatars.com/api/?name=${selectedUser.username}&background=25d366&color=fff&rounded=true&size=32`}
+          // src={`https://ui-avatars.com/api/?name=${selectedUser.profilePicture}&background=25d366&color=fff&rounded=true&size=32`}
+          src={selectedUser.profilePicture}
           alt={selectedUser.username}
           style={{
             borderRadius: "50%",
             verticalAlign: "middle",
             marginRight: 8,
+            width: "32px",
+            height: "32px",
           }}
         />
         <span style={{ flex: 1 }}>{selectedUser.username}</span>

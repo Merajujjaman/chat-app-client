@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MessageBubble.css";
+import useUsers from "../hooks/useUsers";
 
-export default function MessageBubble({ msg, myId, selectedUser }) {
+export default function MessageBubble({ msg, myId, selectedUser, users}) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showFullImage, setShowFullImage] = useState(false);
 
+
   const isSelf = msg.sender === myId;
-  const avatarUrl = `https://ui-avatars.com/api/?name=${isSelf ? localStorage.getItem("username") : msg.username || msg.senderName || "U"}&background=25d366&color=fff&rounded=true&size=32`;
+  const sender = users.find(u => u._id === msg.sender);
+  const avatarUrl = sender && sender.profilePicture? sender.profilePicture : `https://ui-avatars.com/api/?name=${isSelf ? localStorage.getItem("username") : msg.username || msg.senderName || "U"}&background=25d366&color=fff&rounded=true&size=32`;
+
 
   const handleImageClick = () => {
     setShowFullImage(true);
